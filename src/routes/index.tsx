@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-const SAAS_URL = "https://001smmntnnc.corporateboostservice.eu";
+const SAAS_URL = "https://006smmntnnc.corporateboostservice.eu";
 const APP_NAME = "SmMntnnc";
 const APP_FULL_NAME = "SmMntnnc – Smart Maintenance";
 const TAGLINE_EN = "SMART MAINTENANCE, READY FOR SITE.";
