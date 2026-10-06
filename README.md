@@ -4,7 +4,7 @@ Reusable PWA landing/redirect template for SaaS apps. Built to deploy as a
 static site on Cloudflare Pages (HTTPS required for PWA install).
 
 Current configuration: **SmMntnnc – Smart Maintenance**
-→ https://001smmntnnc.corporateboostservice.eu
+→ https://006smmntnnc.corporateboostservice.eu
 
 ## How to duplicate this template for a new SaaS
 
