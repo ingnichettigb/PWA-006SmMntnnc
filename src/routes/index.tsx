@@ -123,23 +123,12 @@ function Landing() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     setLang(detectLang());
-    const host = window.location.hostname;
-    const isPreview =
-      host.startsWith("id-preview--") ||
-      host.startsWith("preview--") ||
-      host.endsWith(".lovableproject.com") ||
-      host.endsWith(".lovableproject-dev.com") ||
-      host.endsWith(".beta.lovable.dev") ||
-      host === "localhost" ||
-      host === "127.0.0.1";
-    if ("serviceWorker" in navigator && !isPreview && window.isSecureContext) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
-    } else if ("serviceWorker" in navigator && isPreview) {
-      navigator.serviceWorker.getRegistrations().then((rs) =>
-        rs.forEach((r) => {
-          if (r.active?.scriptURL.endsWith("/sw.js")) r.unregister();
-        }),
-      );
+    // Launcher is online-only: no service worker. Remove any legacy one.
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .getRegistrations()
+        .then((rs) => rs.forEach((r) => r.unregister()))
+        .catch(() => {});
     }
 
     const ua = window.navigator.userAgent;

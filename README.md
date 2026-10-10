@@ -18,7 +18,7 @@ When forking/cloning this project for a new SaaS, change the following:
 3. **SaaS URL** — Update the target URL in `src/routes/index.tsx`
    (constant `SAAS_URL`) so the "Apri" button and auto-redirect go to
    the right place.
-4. **Cache name** — `public/sw.js`: bump `CACHE_NAME` (e.g. `myapp-v1`)
+4. **No service worker** — the launcher is online-only (manifest + icons). `public/sw.js` is only a cleanup worker for legacy installs; do not add caching.
    so returning users get a fresh shell.
 5. **Meta tags** — `src/routes/__root.tsx` `head()`: update title,
    description, `apple-mobile-web-app-title`, theme-color, OG tags.
