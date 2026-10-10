@@ -160,7 +160,7 @@ function Landing() {
           textTransform: "uppercase",
         }}
       >
-        {TAGLINE_IT}
+        <span lang="it">{TAGLINE_IT}</span>
       </p>
 
       <a
@@ -196,7 +196,7 @@ function Landing() {
           <p style={{ margin: "0 0 4px", fontWeight: 700, color: ACCENT }}>
             ✅ App installed & running in standalone mode
           </p>
-          <p style={{ margin: 0, color: "#dbeafe", fontSize: 13 }}>
+          <p style={{ margin: 0, color: "#dbeafe", fontSize: 13 }} lang="it">
             ✅ Applicazione installata e attiva come App
           </p>
         </div>
@@ -221,7 +221,10 @@ function Landing() {
             Install {APP_NAME} / Installa {APP_NAME}
           </p>
           <p style={{ margin: "0 0 14px", color: "#9fb3c8" }}>
-            Get an icon on your desktop or home screen. · Aggiungi un'icona sul desktop o sulla schermata Home.
+            Get an icon on your desktop or home screen. ·{" "}
+            <span lang="it">
+              Aggiungi un'icona sul desktop o sulla schermata Home.
+            </span>
           </p>
 
           {deferred && (
@@ -249,7 +252,7 @@ function Landing() {
               <p style={{ margin: "0 0 4px" }}>
                 📱 <strong>iPhone / iPad:</strong> tap <strong>Share</strong> → <strong>Add to Home Screen</strong>
               </p>
-              <p style={{ margin: 0, color: "#9fb3c8" }}>
+              <p style={{ margin: 0, color: "#9fb3c8" }} lang="it">
                 Tocca <strong>Condividi</strong> → <strong>Aggiungi a schermata Home</strong>
               </p>
             </>
@@ -258,24 +261,24 @@ function Landing() {
               <p style={{ margin: "0 0 4px" }}>
                 💻 <strong>Chrome / Edge:</strong> click the install icon in the address bar (monitor with ↓ or "+"), or Menu ⋮ → "Install {APP_NAME}".
               </p>
-              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }}>
+              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }} lang="it">
                 Clicca l'icona di installazione nella barra degli indirizzi (monitor con ↓ o "+"), oppure Menu ⋮ → "Installa {APP_NAME}".
               </p>
               <p style={{ margin: "0 0 4px" }}>
                 🍏 <strong>Safari Mac:</strong> File → Add to Dock
               </p>
-              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }}>File → Aggiungi al Dock</p>
+              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }} lang="it">File → Aggiungi al Dock</p>
               <p style={{ margin: "0 0 4px" }}>
                 🤖 <strong>Android:</strong> Menu ⋮ → Install app / Add to Home screen
               </p>
-              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }}>Menu ⋮ → Installa app / Aggiungi a schermata Home</p>
+              <p style={{ margin: "0 0 10px", color: "#9fb3c8" }} lang="it">Menu ⋮ → Installa app / Aggiungi a schermata Home</p>
             </>
           )}
 
           <p style={{ margin: "10px 0 4px", borderTop: `1px solid ${ACCENT}30`, paddingTop: 10 }}>
             ℹ️ Already installed? Open it from your desktop, Start menu, Dock, or the "Open in app" icon in the address bar.
           </p>
-          <p style={{ margin: 0, color: "#9fb3c8" }}>
+          <p style={{ margin: 0, color: "#9fb3c8" }} lang="it">
             Già installata? Aprila dal desktop, dal menu Start, dal Dock o dall'icona "Apri nell'app" nella barra degli indirizzi.
           </p>
         </div>

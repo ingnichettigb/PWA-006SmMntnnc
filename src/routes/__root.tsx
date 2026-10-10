@@ -17,16 +17,21 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          Page not found <span className="text-muted-foreground">·</span>{" "}
+          <span lang="it">Pagina non trovata</span>
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
+          <br />
+          <span lang="it">La pagina che cerchi non esiste o è stata spostata.</span>
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Go home / Vai alla home
           </Link>
         </div>
       </div>
@@ -45,10 +50,15 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          This page didn't load <span className="text-muted-foreground">·</span>{" "}
+          <span lang="it">Questa pagina non si è caricata</span>
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
+          <br />
+          <span lang="it">
+            Qualcosa è andato storto. Puoi ricaricare la pagina o tornare alla home.
+          </span>
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -58,13 +68,13 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Try again / Riprova
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Go home / Vai alla home
           </a>
         </div>
       </div>
@@ -82,7 +92,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "width=device-width, initial-scale=1, viewport-fit=cover",
       },
       { title: "SmMntnnc – Smart Maintenance" },
-      { name: "description", content: "SMART MAINTENANCE, READY FOR SITE." },
+      {
+        name: "description",
+        content:
+          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+      },
       { name: "theme-color", content: "#0a2a4a" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
@@ -95,12 +109,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "msapplication-TileColor", content: "#0a2a4a" },
       { name: "msapplication-TileImage", content: "/icons/icon-144x144.png" },
       { property: "og:title", content: "SmMntnnc – Smart Maintenance" },
-      { property: "og:description", content: "SMART MAINTENANCE, READY FOR SITE." },
+      {
+        property: "og:description",
+        content:
+          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+      },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "it_IT" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "/icons/icon-512x512.png" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "SmMntnnc – Smart Maintenance" },
-      { name: "twitter:description", content: "SMART MAINTENANCE, READY FOR SITE." },
+      {
+        name: "twitter:description",
+        content:
+          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+      },
       { name: "twitter:image", content: "/icons/icon-512x512.png" },
     ],
     links: [

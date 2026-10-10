@@ -1,6 +1,6 @@
 // SmMntnnc PWA service worker — network-first with offline cache fallback.
 // When duplicating this template for a new SaaS, bump CACHE_NAME.
-const CACHE_NAME = "smmntnnc-v3";
+const CACHE_NAME = "smmntnnc-v4";
 const PRECACHE_URLS = [
   "/",
   "/manifest.json",
