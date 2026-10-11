@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { APP_CONFIG, APP_FULL_NAME, APP_DESCRIPTION } from "@/config/app";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -91,39 +92,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "width=device-width, initial-scale=1, viewport-fit=cover",
       },
-      { title: "SmMntnnc – Smart Maintenance" },
+      { title: APP_FULL_NAME },
       {
         name: "description",
         content:
-          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+          APP_DESCRIPTION,
       },
-      { name: "theme-color", content: "#0a2a4a" },
+      { name: "theme-color", content: APP_CONFIG.colors.theme },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
       {
         name: "apple-mobile-web-app-status-bar-style",
         content: "black-translucent",
       },
-      { name: "apple-mobile-web-app-title", content: "SmMntnnc" },
-      { name: "application-name", content: "SmMntnnc" },
-      { name: "msapplication-TileColor", content: "#0a2a4a" },
+      { name: "apple-mobile-web-app-title", content: APP_CONFIG.name },
+      { name: "application-name", content: APP_CONFIG.name },
+      { name: "msapplication-TileColor", content: APP_CONFIG.colors.theme },
       { name: "msapplication-TileImage", content: "/icons/icon-144x144.png" },
-      { property: "og:title", content: "SmMntnnc – Smart Maintenance" },
+      { property: "og:title", content: APP_FULL_NAME },
       {
         property: "og:description",
         content:
-          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+          APP_DESCRIPTION,
       },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "it_IT" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "/icons/icon-512x512.png" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "SmMntnnc – Smart Maintenance" },
+      { name: "twitter:title", content: APP_FULL_NAME },
       {
         name: "twitter:description",
         content:
-          "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+          APP_DESCRIPTION,
       },
       { name: "twitter:image", content: "/icons/icon-512x512.png" },
     ],

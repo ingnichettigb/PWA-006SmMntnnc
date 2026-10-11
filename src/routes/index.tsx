@@ -2,19 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logoAsset from "@/assets/smmntnnc-logo.png.asset.json";
 
-const SAAS_URL = "https://006smmntnnc.corporateboostservice.eu";
-const APP_NAME = "SmMntnnc";
-const APP_FULL_NAME = "SmMntnnc – Smart Maintenance";
-const ACCENT = "#b4ff3c";
-const BG = "#06090f";
-const BLUE = "#0a2a4a";
+import { APP_CONFIG, APP_FULL_NAME, APP_DESCRIPTION } from "@/config/app";
+
+const SAAS_URL = APP_CONFIG.saasUrl;
+const APP_NAME = APP_CONFIG.name;
+const ACCENT = APP_CONFIG.colors.accent;
+const BG = APP_CONFIG.colors.bg;
+const BLUE = APP_CONFIG.colors.theme;
 
 type Lang = "it" | "en" | "es" | "de";
 const LANGS: Lang[] = ["it", "en", "es", "de"];
 
 const T: Record<Lang, Record<string, string>> = {
   en: {
-    tagline: "SMART MAINTENANCE, READY FOR SITE.",
+    tagline: APP_CONFIG.tagline.en,
     open: `Open ${APP_NAME} →`,
     license: "Access requires an active license. A one-time email verification code will be requested.",
     installed: `✅ Application installed and active as App.`,
@@ -36,7 +37,7 @@ const T: Record<Lang, Record<string, string>> = {
     dataCleared: "✅ Local data cleared successfully.",
   },
   it: {
-    tagline: "MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE.",
+    tagline: APP_CONFIG.tagline.it,
     open: `Apri ${APP_NAME} →`,
     license: "L'accesso richiede una licenza attiva. Verrà richiesto un codice di verifica email una tantum.",
     installed: "✅ Applicazione installata e attiva come App.",
@@ -58,7 +59,7 @@ const T: Record<Lang, Record<string, string>> = {
     dataCleared: "✅ Dati locali cancellati con successo.",
   },
   es: {
-    tagline: "MANTENIMIENTO INTELIGENTE, LISTO PARA LA OBRA.",
+    tagline: APP_CONFIG.tagline.es,
     open: `Abrir ${APP_NAME} →`,
     license: "El acceso requiere una licencia activa. Se solicitará un código de verificación por correo electrónico de un solo uso.",
     installed: "✅ Aplicación instalada e activa como App.",
@@ -80,7 +81,7 @@ const T: Record<Lang, Record<string, string>> = {
     dataCleared: "✅ Datos locales eliminados con éxito.",
   },
   de: {
-    tagline: "INTELLIGENTE WARTUNG, BEREIT FÜR DIE BAUSTELLE.",
+    tagline: APP_CONFIG.tagline.de,
     open: `${APP_NAME} öffnen →`,
     license: "Der Zugriff erfordert eine aktive Lizenz. Es wird ein einmaliger E-Mail-Bestätigungscode angefordert.",
     installed: "✅ Anwendung installiert und als App aktiv.",
@@ -118,9 +119,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: APP_FULL_NAME },
-      { name: "description", content: "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE." },
+      { name: "description", content: APP_DESCRIPTION },
       { property: "og:title", content: APP_FULL_NAME },
-      { property: "og:description", content: "SMART MAINTENANCE, READY FOR SITE. · MANUTENZIONE INTELLIGENTE, PRONTA PER IL CANTIERE." },
+      { property: "og:description", content: APP_DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -246,8 +247,8 @@ function Index() {
             letterSpacing: -1,
           }}
         >
-          <span style={{ color: ACCENT }}>Sm</span>
-          <span style={{ color: "#fff" }}>Mntnnc</span>
+          <span style={{ color: ACCENT }}>{APP_CONFIG.wordmark.accent}</span>
+          <span style={{ color: "#fff" }}>{APP_CONFIG.wordmark.rest}</span>
         </div>
         <p style={{ marginTop: 16, letterSpacing: 2, fontSize: 13, opacity: 0.85 }}>{t.tagline}</p>
 
