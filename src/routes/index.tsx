@@ -222,12 +222,18 @@ function Index() {
     >
       <div style={{ maxWidth: 480, width: "100%" }}>
         <img
-          src={logoAsset.url}
-          alt={APP_FULL_NAME}
-          width={140}
-          height={140}
-          style={{ width: 140, height: 140, borderRadius: 28, marginBottom: 20 }}
-        />
+  src={logoAsset.url}
+  alt={APP_FULL_NAME}
+  width={140}
+  height={140}
+  style={{
+    display: "block",
+    margin: "0 auto 20px",
+    width: 140,
+    height: 140,
+    borderRadius: 28,
+  }}
+/>
         <div
           style={{
             display: "inline-block",
