@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ManifestDotjsonRouteImport } from './routes/manifest[.]json'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManifestDotjsonRoute = ManifestDotjsonRouteImport.update({
+  id: '/manifest.json',
+  path: '/manifest.json',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/manifest.json'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/manifest.json'
+  id: '__root__' | '/' | '/manifest.json'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ManifestDotjsonRoute: typeof ManifestDotjsonRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/manifest.json': {
+      id: '/manifest.json'
+      path: '/manifest.json'
+      fullPath: '/manifest.json'
+      preLoaderRoute: typeof ManifestDotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ManifestDotjsonRoute: ManifestDotjsonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
