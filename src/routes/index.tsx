@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logoAsset from "@/assets/smmntnnc-logo.png.asset.json";
 
 const SAAS_URL = "https://006smmntnnc.corporateboostservice.eu";
 const APP_NAME = "SmMntnnc";
@@ -222,6 +223,13 @@ function Landing() {
         textAlign: "center",
       }}
     >
+      <img
+        src={logoAsset.url}
+        alt="SmMntnnc – Smart Maintenance"
+        width={140}
+        height={140}
+        style={{ width: 140, height: 140, borderRadius: 28, marginBottom: 20 }}
+      />
       <div
         aria-label="SmMntnnc logo"
         style={{
